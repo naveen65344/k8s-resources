@@ -6,9 +6,7 @@ spec:
   containers:
     - name: nginx
       image: nginx
-      ports:
-        - containerPort: 80
+      
     - name: nginx1
       image: nginx
-      ports:
-        - containerPort: 81 # Different port for the second container
+        # Different port for the second container
