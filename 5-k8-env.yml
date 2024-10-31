@@ -10,4 +10,4 @@ spec:
    image: nginx  
    env:
    - name: demo
-     course: devops
+     value: hi
