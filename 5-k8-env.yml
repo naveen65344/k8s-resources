@@ -1,13 +1,8 @@
 apiVersion: v1
-kind: Pod
+kind: pod
 metadata:
- name: pod-env
- labels:
-  environment: dev
-spec: 
+ name:pod-env
+spec:
  containers:
  - name: nginx
-   image: nginx  
-   env:
-   - name: demo
-     value: hi
+   image: nginx 
