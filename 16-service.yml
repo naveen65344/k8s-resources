@@ -9,5 +9,5 @@ spec:
    name: nav
  ports:
     - port: 80           # Service port
-     targetPort: 80     # Container port
+      targetPort: 80     # Container port
 
