@@ -2,7 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
  name: pod-100
- labels: n99
+ labels:
+   name: n99
 spec:
  containers:
   - name: nginx
