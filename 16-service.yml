@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+ name: service
+ labels:
+  name: nav
 spec:
-
-  selector:
-    name: n1
-  ports:
+ selector:
+   name: nav
+ ports:
     - port: 80           # Service port
-      targetPort: 80     # Container port
-      nodePort: 30007    # Optional NodePort; Kubernetes can choose if omitted
+     targetPort: 80     # Container port
+
