@@ -7,13 +7,5 @@ spec:
     - name: nginx
       image: nginx 
 
-apiVersion: v1
-kind: Pod
-metadata:
-  name: hello
-spec:
-  containers:
-    - name: nginx1
-      image: nginx 
 
     
