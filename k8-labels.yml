@@ -4,7 +4,3 @@ metadata:
   name: label-pod
   labels:
     environment: dev
-spec:
-  containers:
-  - name: nginx
-    image: nginx
