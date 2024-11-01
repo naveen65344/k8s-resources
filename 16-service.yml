@@ -8,5 +8,5 @@ spec:
  selector:
   name: n99
  ports
- - port: 3306
-   targetPort: 80    
+  - port: 3306
+    targetPort: 80    
