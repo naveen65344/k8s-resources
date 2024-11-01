@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-config
+ name: config
 data:
-  course: devops
-  duration: "130hrs"
+ course: devops
+ duration: 120hrs 
