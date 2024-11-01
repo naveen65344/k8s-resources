@@ -5,7 +5,7 @@ metadata:
  labels:
   name: n1
 spec:
- name: nginx
- image: nginx
+ - name: nginx
+   image: nginx
  ports:
   - containerPort: 80  
