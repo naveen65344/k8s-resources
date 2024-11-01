@@ -4,3 +4,4 @@ metadata:
   name: course
   labels:
    duration: "120"
+   hi: "hello"
