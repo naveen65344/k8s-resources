@@ -9,9 +9,9 @@ spec:
 
 
 apiVersion: v1
-kind: hi
+kind: Pod
 metadata:
-  name: pod
+  name: pod2
 spec:
   containers:
     - name: nginx3
