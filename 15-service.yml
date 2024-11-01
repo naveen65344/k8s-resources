@@ -3,9 +3,10 @@ kind: Pod
 metadata:
  name: pod
  labels:
-  name: n1
+   name: n1
 spec:
- - name: nginx
-   image: nginx
- ports:
-  - containerPort: 80  
+ containers:
+  name: nginx
+  image: nginx
+  ports:
+   - containerPort: 80
