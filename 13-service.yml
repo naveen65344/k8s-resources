@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
- 
-  selector:
+ selector:
     name: n1
   ports:
     - port: 80           # Service port
