@@ -8,4 +8,14 @@ spec:
       image: nginx 
 
 
+apiVersion: v1
+kind: hi
+metadata:
+  name: pod
+spec:
+  containers:
+    - name: nginx3
+      image: nginx       
+
+
     
