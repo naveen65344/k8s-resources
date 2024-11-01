@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: course
   labels:
-   duration: 120
+   duration: "120"
