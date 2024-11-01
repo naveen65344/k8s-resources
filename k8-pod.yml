@@ -6,6 +6,14 @@ spec:
   containers:
     - name: nginx
       image: nginx 
+      
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx 
 
-    - name: nginx1
-      image: nginx   
+    
