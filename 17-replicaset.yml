@@ -3,19 +3,19 @@ kind: ReplicaSet
 metadata:
   name: replicaset
   labels:
-   name: replica
+    name: replica
 spec:
-  replicas: 3
+  replicas: 3  # Corrected to lowercase
   selector:
     matchLabels:
       name: replica
   template:
     metadata:
-      name: pod
       labels:
-       name: replica
+        name: replica  # The name field here is not strictly necessary
     spec:
-     containers:
-       image: nginx
-       ports:
-        - containerPort: 80             
+      containers:
+      - name: nginx-container  # Added container name
+        image: nginx
+        ports:
+        - containerPort: 80
