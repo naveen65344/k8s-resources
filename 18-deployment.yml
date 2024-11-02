@@ -1,23 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deplyoment
 metadata:
-  name: deploy
-  labels:
-    name: deploy
+ name: deploy
+ labels:
+   name: hello
 spec:
-  replicas: 3  # Corrected to lowercase
+  replicas: 2
   selector:
     matchLabels:
-      name: deploy
-  template:
-    metadata:
-      labels:
-        name: deploy  # The name field here is not strictly necessary
-    spec:
-      containers:
-      - name: nginx-container  # Added container name
-        image: nginx
-        ports:
-        - containerPort: 80
-
-        
+      name: hello
+    template:
+      metadata:
+        labels:
+          name: hello
+      spec:
+        containers:
+         - name: nginx
+           image: nginx
+          ports:
+           - containerPort: 80
