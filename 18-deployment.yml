@@ -14,7 +14,7 @@ metadata:
        labels:
          name: hi
      spec:
-      containers:
+       containers:
         - name: nginx
           image: nginx          
  
