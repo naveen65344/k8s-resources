@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: course
+  name: expense
   labels:
-   duration: "120"
-   hi: "hello"
+    project: expense
+    environment: dev
