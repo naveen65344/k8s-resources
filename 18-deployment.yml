@@ -1,18 +1,18 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: replicaset
+  name: deploy
   labels:
-    name: replica
+    name: deploy
 spec:
   replicas: 3  # Corrected to lowercase
   selector:
     matchLabels:
-      name: replica
+      name: deploy
   template:
     metadata:
       labels:
-        name: replica  # The name field here is not strictly necessary
+        name: deploy  # The name field here is not strictly necessary
     spec:
       containers:
       - name: nginx-container  # Added container name
