@@ -27,7 +27,7 @@ spec:
       name: hello
    ports:
     - port: 80
-      ContainerPort: 80
+      targetPort: 80
       protocol: TCP
 
 
