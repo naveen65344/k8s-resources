@@ -16,8 +16,8 @@ spec:
       name: hi
    spec:
     containers:
-      - name: nginx:stable-perl
-        image: nginx  
+      - name: nginx
+        image: nginx:stable-perl 
 
 ---
 apiVersion: v1
