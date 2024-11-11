@@ -23,13 +23,13 @@ spec:
     name: service-1
   spec:  
    selector:
-    labels:
+    
       name: hello
    ports:
     - port: 80
       ContainerPort: 80
       protocol: TCP
-         
+
 
 
         
