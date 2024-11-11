@@ -16,4 +16,20 @@ spec:
         - name: nginx
           image: nginx
 
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: service-1
+  spec:  
+   selector:
+    labels:
+      name: hello
+   ports:
+    - port: 80
+      ContainerPort: 80
+      protocol: TCP
+         
+
+
         
