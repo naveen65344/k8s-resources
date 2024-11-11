@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+    project: expense
+
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+     app: mysql
+     project: expense
+  template:
+   metadata:
+    labels:
+      app: mysql
+      project: expense
+   spec:
+    containers:
+      - name: mysql
+        image: joindevops/mysql:v1
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+  labels:
+    name: hi
+spec:
+ selector:
+   app: mysql
+   project: expense
+
+ ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP  
+ type:
+   LoadBalancer                 
