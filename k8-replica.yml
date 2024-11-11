@@ -9,10 +9,10 @@ spec:
      name: hello
   template:
    metadata:
-     label:
+     labels:
        name: hello
    spec:
      containers:
        - name: nginx
          image: nginx
-         
+
