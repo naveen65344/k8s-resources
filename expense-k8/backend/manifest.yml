@@ -5,49 +5,50 @@ metadata:
   namespace: expense
 data:
   DB_HOST: mysql
----  
-
+---
 
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: expense
   name: backend
+  namespace: expense  # Optional: specify your namespace here
   labels:
     app: backend
-    project: expense
-
+    env: dev
 spec:
-  replicas: 3 
+  replicas: 2  # Number of desired pods
   selector:
     matchLabels:
-     app: backend
-     project: expense
-  template:
-   metadata:
-    labels:
       app: backend
-      project: expense
-   spec:
-    containers:
+      env: dev
+      
+  template:
+    metadata:
+      labels:
+        app: backend
+        env: dev
+    spec:
+      containers:
       - name: backend
-        image: joindevops/backend:v1
-
+        image: joindevops/backend:v1  # Specify the Docker image
+        envFrom:
+        - configMapRef:
+            name: backend
+        
+        
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: service
-  labels:
-    name: hi
+  name: backend
+  namespace: expense # Optional: specify your namespace here
 spec:
- selector:
-   app: backend
-   project: expense
-
- ports:
-  - port: 8080
-    targetPort: 8080
-    protocol: TCP  
-                 
+  type: ClusterIP  # Change to NodePort or LoadBalancer if needed
+  selector:
+     app: backend
+     env: dev
+  ports:
+    - port: 8080  # Port exposed by the service
+      targetPort: 8080 # Port on the pod to forward traffic to
+      protocol: TCP
