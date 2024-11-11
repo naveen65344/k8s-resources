@@ -16,7 +16,7 @@ spec:
       name: hi
    spec:
     containers:
-      - name: nginx
+      - name: nginx:stable-perl
         image: nginx  
 
 ---
