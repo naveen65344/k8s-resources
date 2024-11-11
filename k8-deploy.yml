@@ -9,12 +9,12 @@ spec:
   selector:
     matchLabels:
      name: hi
-template:
-  metadata:
+  template:
+   metadata:
     labels:
       name: hi
-  spec:
-   containers:
+   spec:
+    containers:
      name: nginx
      image: nginx
 
