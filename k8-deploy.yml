@@ -6,6 +6,7 @@ metadata:
     name: hi
 
 spec:
+  replicas: 3 
   selector:
     matchLabels:
      name: hi
