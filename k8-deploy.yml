@@ -14,5 +14,6 @@ spec:
     labels:
       name: hi
    spec:
-     name: nginx
-     image: nginx  
+    containers:
+      - name: nginx
+        image: nginx  
