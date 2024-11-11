@@ -15,6 +15,6 @@ spec:
       name: hi
    spec:
     containers:
-     name: nginx
-     image: nginx
+     - name: nginx
+       image: nginx
 
