@@ -1,12 +1,3 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: my-storage-class
-provisioner: ebs.csi.aws.com  # Latest AWS EBS CSI driver provisioner
-reclaimPolicy: Retain         # Retain policy ensures the volume is not deleted after PVC deletion
-volumeBindingMode: WaitForFirstConsumer  # Ensures the volume is not provisioned until a pod consumes it
-parameters:
-  type: gp3  # For AWS, you can specify the volume type (gp2, gp3, io1, etc.)
 
 
 apiVersion: storage.k8s.io/v1
