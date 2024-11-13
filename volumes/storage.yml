@@ -1,13 +1,9 @@
+
+
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: ebs-sc  # Name of the StorageClass
-provisioner: ebs.csi.aws.com  # Use the new AWS EBS CSI provisioner
-parameters:
-  type: gp3  # Volume type (gp3 for cost-effective and high-performance volumes)
-  fsType: ext4  # Filesystem type (ext4 is a common choice)
-  iopsPerGB: "50"  # Optional: IOPS per GB for gp3
-  throughput: "125"  # Optional: Throughput in MB/s for gp3 volumes
-reclaimPolicy: Retain  # Automatically delete the volume when PVC is deleted
-volumeBindingMode: WaitForFirstConsumer  # Wait until the pod is scheduled before provisioning the volume
-allowVolumeExpansion: true  # Allow the PVC to be expanded later
+  name: expense-ebs
+reclaimPolicy: Retain
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer # storage will be created when pod is getting created
