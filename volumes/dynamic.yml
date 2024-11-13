@@ -16,6 +16,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: my-pod  # Name of the Pod
+  labels:
+    name: nginx
 spec:
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1a  # Ensure Pod is scheduled in the correct zone (e.g., us-east-1a)
@@ -29,3 +31,16 @@ spec:
     - name: ebs-storage  # Name of the volume referenced in the container
       persistentVolumeClaim:
         claimName: my-claim  # The PVC to be used by this Pod
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service  # Name of the Service
+spec:
+  selector:
+    name: nginx  # Select Pods with the 'name: nginx' label
+  ports:
+    - protocol: TCP
+      port: 80  # Port on which the service will be exposed
+      targetPort: 80  # Port the container is listening on
+  type: LoadBalancer  # Exp
