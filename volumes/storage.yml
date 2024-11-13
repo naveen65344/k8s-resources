@@ -1,13 +1,13 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: ebs-sc
-provisioner: kubernetes.io/aws-ebs  # AWS EBS provisioner
+  name: ebs-sc  # The name of the StorageClass
+provisioner: kubernetes.io/aws-ebs  # Use AWS EBS provisioner
 parameters:
-  type: gp3  # The latest type for cost-effective and high-performance volumes
-  fsType: ext4  # Filesystem type for the volume
-  iopsPerGB: "50"  # Optional: IOPS for gp3 (input/output operations per GB)
-  throughput: "125"  # Optional: throughput (in MB/s) for gp3
-reclaimPolicy: Retain  # Automatically delete the volume when PVC is deleted
-volumeBindingMode: WaitForFirstConsumer  # Wait until the pod is scheduled before provisioning the volume
-allowVolumeExpansion: true  # Allow PVC expansion if needed later
+  type: gp3  # Use gp3 EBS volumes for cost-effectiveness and performance
+  fsType: ext4  # Filesystem type
+  iopsPerGB: "50"  # Optional: IOPS per GB (only for gp3 volumes)
+  throughput: "125"  # Optional: Throughput (MB/s)
+reclaimPolicy: Delete  # Automatically delete the EBS volume when PVC is deleted
+volumeBindingMode: WaitForFirstConsumer  # Provision the volume after the pod is scheduled
+allowVolumeExpansion: true  # Allow volume expansion if required in the future
