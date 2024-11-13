@@ -17,7 +17,7 @@ metadata:
   name: my-pod  # Name of the Pod
 spec:
   nodeSelector:
-    failure-domain.beta.kubernetes.io/zone: us-east-1a  # Ensure Pod is scheduled in us-east-1a
+    topology.kubernetes.io/zone: us-east-1a  # Ensure Pod is scheduled in us-east-1a
   containers:
     - name: nginx  # Name of the container
       image: nginx:latest  # Image to run in the container
