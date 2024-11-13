@@ -8,6 +8,6 @@ parameters:
   fsType: ext4  # Filesystem type (ext4 is a common choice)
   iopsPerGB: "50"  # Optional: IOPS per GB for gp3
   throughput: "125"  # Optional: Throughput in MB/s for gp3 volumes
-reclaimPolicy: Delete  # Automatically delete the volume when PVC is deleted
+reclaimPolicy: Retain  # Automatically delete the volume when PVC is deleted
 volumeBindingMode: WaitForFirstConsumer  # Wait until the pod is scheduled before provisioning the volume
 allowVolumeExpansion: true  # Allow the PVC to be expanded later
