@@ -1,46 +1,28 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-dynamic
+  name: my-claim  # Name of the PVC
 spec:
-  storageClassName: "expense-ebs"
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce  # The volume can be mounted as read-write by a single node
   resources:
     requests:
-      storage: 3Gi
----
+      storage: 5Gi  # Requested storage size (e.g., 10Gi)
+  storageClassName: ebs-sc  # Use the StorageClass created earlier
+
+
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ebs-dynamic
-  labels:
-    purpose: ebs-dynamic
+  name: my-pod  # Name of the Pod
 spec:
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1a
   containers:
-  - name: nginx
-    image: nginx
-    volumeMounts: # docker run -v hostpath:contaierpath
-    - name: ebs-dynamic
-      mountPath: /usr/share/nginx/html
+    - name: nginx  # Name of the container
+      image: nginx:latest  # Image to run in the container
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html  # Path inside the container to mount the volume
+          name: ebs-storage  # Volume name
   volumes:
-  - name: ebs-dynamic
-    persistentVolumeClaim:
-      claimName: ebs-dynamic
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: nginx
-spec:
-  type: LoadBalancer
-  selector:
-    purpose: ebs-dynamic
-  ports:
-  - name: nginx-svc-port
-    protocol: TCP
-    port: 80 # service port
-    targetPort: 80 # container port
-    nodePort: 30007
+    - name: ebs-storage  # Name of the volume referenced in the container
+      persistentVolumeClaim:
+        claimName: my-claim  # PVC to use for this volume
