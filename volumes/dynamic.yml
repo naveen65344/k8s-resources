@@ -8,18 +8,6 @@ spec:
   resources:
     requests:
       storage: 3Gi  # Specify the size of the storage
-  storageClassName: my-storage-class  # Referencing the StorageClass created above
+  storageClassName: expense-ebs  # Referencing the StorageClass created above
 
 
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-dynamic
-spec:
-  storageClassName: "expense-ebs"
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
----
