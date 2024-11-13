@@ -4,9 +4,9 @@ metadata:
   name: my-ebs-pvc  # Name of the PVC
 spec:
   accessModes:
-    - ReadWriteOnce  # This volume can only be mounted by a single node at a time
+    - ReadWriteOnce  # This volume can be mounted by a single node at a time
   resources:
     requests:
-      storage: 10Gi  # Request 10Gi of storage
-  storageClassName: ebs-sc  # Reference the StorageClass we created earlier
-  volumeMode: Filesystem  # The volume will be formatted with a filesystem
+      storage: 10Gi  # Request 10GB of storage
+  storageClassName: ebs-sc  # Link to the StorageClass created above
+  volumeMode: Filesystem  # Volume will be formatted with a filesystem
