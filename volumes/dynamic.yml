@@ -3,12 +3,13 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-claim  # Name of the PVC
 spec:
+   
   accessModes:
     - ReadWriteOnce  # The volume can be mounted as read-write by a single node
   resources:
     requests:
       storage: 5Gi  # Requested storage size (e.g., 10Gi)
-  storageClassName: ebs-sc  # Use the StorageClass created earlier
+  storageClassName: expense-ebs  # Use the StorageClass created earlier
 
 
 apiVersion: v1
