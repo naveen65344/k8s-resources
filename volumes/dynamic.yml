@@ -7,5 +7,5 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi  # Specify the size of the storage
+      storage: 3Gi  # Specify the size of the storage
   storageClassName: my-storage-class  # Referencing the StorageClass created above
