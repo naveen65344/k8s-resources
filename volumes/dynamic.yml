@@ -10,3 +10,22 @@ spec:
     requests:
       storage: 5Gi  # Request 5Gi of storage
   storageClassName: expense-ebs  # Reference to the StorageClass 'expense-ebs'
+---  
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod  # Name of the Pod
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a  # Ensure Pod is scheduled in the correct zone (e.g., us-east-1a)
+  containers:
+    - name: nginx  # Container running nginx
+      image: nginx:latest  # Use the latest nginx image
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html  # Path inside the container to mount the volume
+          name: ebs-storage  # Reference to the volume by name
+  volumes:
+    - name: ebs-storage  # Name of the volume referenced in the container
+      persistentVolumeClaim:
+        claimName: my-claim  # The PVC to be used by this Pod
