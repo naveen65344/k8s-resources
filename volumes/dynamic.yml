@@ -8,18 +8,8 @@ spec:
   resources:
     requests:
       storage: 10Gi  # Request 10GB of storage
-  storageClassName: ebs-sc  # Link to the StorageClass created above
+  storageClassName: expense-ebs  # Link to the StorageClass created above
   volumeMode: Filesystem  # Volume will be formatted with a filesystem
 
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-dynamic
-spec:
-  storageClassName: "expense-ebs"
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
+
 
