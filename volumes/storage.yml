@@ -1,10 +1,13 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: standard
-provisioner: kubernetes.io/aws-ebs
+  name: ebs-sc
+provisioner: kubernetes.io/aws-ebs  # AWS EBS provisioner
 parameters:
-  type: gp2  # EBS volume type
-  fsType: ext4  # File system type
-reclaimPolicy: Retain  # Options: Delete, Retain, Recycle
-volumeBindingMode: WaitForFirstConsumer  # Wait for a pod to request a volume before binding it
+  type: gp3  # The latest type for cost-effective and high-performance volumes
+  fsType: ext4  # Filesystem type for the volume
+  iopsPerGB: "50"  # Optional: IOPS for gp3 (input/output operations per GB)
+  throughput: "125"  # Optional: throughput (in MB/s) for gp3
+reclaimPolicy: Retain  # Automatically delete the volume when PVC is deleted
+volumeBindingMode: WaitForFirstConsumer  # Wait until the pod is scheduled before provisioning the volume
+allowVolumeExpansion: true  # Allow PVC expansion if needed later

@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-pvc
+  name: my-ebs-pvc  # Name of the PVC
 spec:
   accessModes:
-    - ReadWriteOnce  # Access mode: RWO (ReadWriteOnce), ROX (ReadOnlyMany), RWX (ReadWriteMany)
+    - ReadWriteOnce  # This volume can only be mounted by a single node at a time
   resources:
     requests:
-      storage: 5Gi  # Amount of storage requested
-  storageClassName: standard  # Name of the StorageClass that will handle provisioning
+      storage: 10Gi  # Request 10Gi of storage
+  storageClassName: ebs-sc  # Reference the StorageClass we created earlier
+  volumeMode: Filesystem  # The volume will be formatted with a filesystem
