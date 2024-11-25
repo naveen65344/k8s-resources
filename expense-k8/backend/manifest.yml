@@ -60,3 +60,19 @@ spec:
     - port: 8080  # Port exposed by the service
       targetPort: 8080 # Port on the pod to forward traffic to
       protocol: TCP
+
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ name: backend
+ namespace: expense
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: backend
+ minReplicas: 1
+ maxReplicas: 10
+ targetCPUUtilizationPercentage: 15 # usually 75 in real environment      
